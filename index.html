@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air Detection Dashboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- This links to your CSS file -->
+    <title>Air Quality Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Air Quality Monitoring Dashboard</h1>
-        <p>Gas Level (MQ-135): <span id="gasLevel">Loading...</span></p> <!-- Display the gas level here -->
+    <h1>Air Quality Dashboard</h1>
+    <div id="dashboard">
+        <p>MQ-135 Sensor Value: <span id="sensorValue">Loading...</span></p>
     </div>
-
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script> <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script> <!-- Firebase Database -->
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script src="app.js"></script>
 </body>
 </html>
