@@ -1,23 +1,23 @@
-// Replace with your Firebase project configuration
+// Firebase configuration (replace with your own Firebase config)
 const firebaseConfig = {
-    apiKey: "AIzaSyB7LwobchU50-lX8xkaMHU_8pSAxXmQajQ",
-    authDomain: "air-detection-system-d1d27.firebaseapp.com",
-    databaseURL: "https://air-detection-system-d1d27-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "air-detection-system-d1d27",
-    storageBucket: "air-detection-system-d1d27.appspot.com",
-    messagingSenderId: "443327486938",
-    appId: "1:443327486938:web:f1390e9586253c39d6fee3",
-    measurementId: "G-8BFJZV7YGX"
+    apiKey: "AIzaSyAHawK_6bte7qlaPf-BFJboFICI9hTr3cs",
+    authDomain: "air-detection-system-ad77c.firebaseapp.com",
+    databaseURL: "https://air-detection-system-ad77c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "air-detection-system-ad77c",
+    storageBucket: "air-detection-system-ad77c.firebasestorage.app",
+    messagingSenderId: "511086340141",
+    appId: "1:511086340141:web:39181e590512df5ec070a4",
 };
 
-// Initialize Firebase with your configuration
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const database = firebase.database(app);
 
-// Reference your Firebase Realtime Database path for MQ-135 data
-const dbRef = firebase.database().ref('sensorData/mq135');
+// Reference the MQ-135 sensor value in Firebase
+const sensorRef = database.ref("/air_quality/mq135");
 
-// Fetch the gas level from the database and update the webpage
-dbRef.on('value', (snapshot) => {
-    const gasLevel = snapshot.val(); // Get the value from Firebase
-    document.getElementById('gasLevel').textContent = gasLevel; // Update the webpage
+// Function to update the value on the dashboard
+sensorRef.on("value", (snapshot) => {
+    const sensorValue = snapshot.val();
+    document.getElementById("sensorValue").innerText = sensorValue;
 });
