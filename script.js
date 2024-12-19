@@ -6,7 +6,7 @@ const firebaseConfig = {
     projectId: "air-detection-system-ad77c",
     storageBucket: "air-detection-system-ad77c.firebasestorage.app",
     messagingSenderId: "511086340141",
-    appId: "1:511086340141:web:39181e590512df5ec070a4",
+    appId: "1:511086340141:web:39181e590512df5ec070a4"
 };
 
 // Initialize Firebase
