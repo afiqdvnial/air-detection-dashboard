@@ -16,8 +16,12 @@ const database = firebase.database(app);
 // Reference the MQ-135 sensor value in Firebase
 const sensorRef = database.ref("/air_quality/mq135");
 
-// Function to update the value on the dashboard
 sensorRef.on("value", (snapshot) => {
+    console.log("Firebase data snapshot:", snapshot.val());
     const sensorValue = snapshot.val();
-    document.getElementById("sensorValue").innerText = sensorValue;
+    if (sensorValue !== null) {
+        document.getElementById("sensorValue").innerText = sensorValue;
+    } else {
+        console.error("No data found at /air_quality/mq135");
+    }
 });
